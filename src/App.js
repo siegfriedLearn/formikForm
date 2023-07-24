@@ -10,13 +10,14 @@ function App() {
       pswField: ''
     },
     onSubmit: values =>{
-      console.log("form:", values);
+      //console.log("form:", values);
+      alert("Login Successful");
     },
     validate: values =>{
       let errors = {}
         if(!values.emailField) errors.emailError = "Field required";
-        // if(!values.emailField) errors.emailError = "Field required";
         if(!values.pswField) errors.pswError = "Field required";
+        else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.emailField)) errors.emailError = "Username should be an email";
         return errors;
     }
   });
